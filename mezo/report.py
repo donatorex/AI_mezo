@@ -346,8 +346,10 @@ def create_pdf_report(sample_id: int) -> None:
     html_content = get_report(params)
 
     # Save HTML report
-    with open("report template/test.html", "w", encoding="utf-8") as file:
+    with open(os.path.join(DATA_DIR, "last_report.html"), "w", encoding="utf-8") as file:
         file.write(html_content)
 
     # Open HTML report in browser
-    webbrowser.open(os.path.join('file://', os.getcwd(), 'report template/test.html'))
+    webbrowser.open(
+        os.path.join('file://', os.getcwd(), os.path.join(DATA_DIR, "last_report.html"))
+    )
