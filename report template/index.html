@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+</head>
+
+<body>
+    <article>
+        <div>
+            <header class="container">
+                <div class="bio">
+                    <h1>Определение содержания мезофазы в пеке</h1>
+                    <p><b>Наименование образца: </b>{{name}}</p>
+                    <p><b>Дата анализа: </b>{{date}}</p>
+                    <p><b>Описание: </b>{{description}}</p>
+                </div>
+                <img src="images/Mezo.svg" alt="Logo">
+            </header>
+            <hr />
+            <h4>Распределение по размерам</h4>
+            <div class="size">
+                <table>
+                    <tr>
+                        <th rowspan="2">Размер</th>
+                        <th colspan="{{count}}">Номер снимка</th>
+                        <th rowspan="2">Итог</th>
+                    </tr>
+                    <tr>
+                        {{table_headers}}
+                    </tr>
+                    <tr>
+                        <td>Менее 2 мкм</td>
+                        {{size_row_1}}
+                    </tr>
+                    <tr>
+                        <td>От 2 до 5 мкм</td>
+                        {{size_row_2}}
+                    </tr>
+                    <tr>
+                        <td>От 5 до 10 мкм</td>
+                        {{size_row_3}}
+                    </tr>
+                    <tr>
+                        <td>От 10 до 20 мкм</td>
+                        {{size_row_4}}
+                    </tr>
+                    <tr>
+                        <td>От 20 до 50 мкм</td>
+                        {{size_row_5}}
+                    </tr>
+                    <tr>
+                        <td>Более 50 мкм</td>
+                        {{size_row_6}}
+                    </tr>
+                    <tr>
+                        <td>Всего мезофаз, ед.</td>
+                        {{size_row_7}}
+                    </tr>
+                </table>
+            </div>
+            <h4>Результаты анализа</h4>
+            <div class="size">
+                <table>
+                    <tr>
+                        <th rowspan="2">Свойство</th>
+                        <th colspan="{{count}}">Номер снимка</th>
+                        <th rowspan="2">Итог</th>
+                    </tr>
+                    <tr>
+                        {{table_headers}}
+                    </tr>
+                    <tr>
+                        <td>Максимальный размер, мкм</td>
+                        {{results_row_1}}
+                    </tr>
+                    <tr>
+                        <td>Пористость материала, %</td>
+                        {{results_row_2}}
+                    </tr>
+                    <tr>
+                        <td>Площадь материала, мм2</td>
+                        {{results_row_3}}
+                    </tr>
+                    <tr>
+                        <td>Площадь мезофазы, мм2</td>
+                        {{results_row_4}}
+                    </tr>
+                    <tr>
+                        <td>Содержание мезофазы, %</td>
+                        {{results_row_5}}
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="page">Страница 1</div>
+    </article>
+    {{image_pages}}
+</body>
+</html>

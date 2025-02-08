@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after
+{
+    box-sizing: inherit;
+}
+
+
+html, body {
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+article {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    margin: 20px;
+    width: 210mm;
+    height: 297mm;
+    page-break-after: always;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 70%;
+}
+
+header img {
+    float: right;
+}
+
+hr {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #4D4D4D;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.page {
+    position: relative;
+    bottom: 10px;
+    right: 0px;
+    text-align: right;
+    color: #4D4D4D;
+}
+
+.size {
+    display: flex;
+    justify-content: left;
+    padding: 10px 0px;
+}
+
+.size table {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    text-align: center;
+}
+
+.size tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.size th {
+    border: 1px solid #929292;
+    background-color: #eeffb8;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.size td {
+    border: 1px solid #929292;
+    padding: 5px;
+    font-size: 14px;
+    min-width: 50px;
+}
+
+.size td:first-child {
+    text-align: left;
+    background-color: #eeffb8;
+    width: 220px;
+}
+
+.size td:last-child {
+    font-weight: 600;
+    width: 100px;
+}
+
+.size tr:last-child {
+    font-weight: 600;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery-item {
+    width: calc(50% - 20px); /* Two items per row with some space in between */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.caption {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #4D4D4D;
+}
+
+@media print
+{
+    html,
+    body
+    {   
+        background-color: white !important;
+    }
+
+    article
+    {
+        margin: 0 !important;
+    }
+
+    .size tr:nth-child(odd) {
+        background-color: #f1f1f1;
+    }
+}
