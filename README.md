@@ -5,7 +5,7 @@ user-friendly interface for viewing a library of samples and editing images.
 
 ![Mezo analysis](https://github.com/donatorex/AI_mezo/blob/main/assets/mezo_analysis.png?raw=true)
 
-## Disclamer
+## Disclaimer
 
 The Mezo program was developed as a personal project and is part of my portfolio. Please note that
 support for this project is not guaranteed. If you have any questions about commercial use or other
