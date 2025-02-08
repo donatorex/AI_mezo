@@ -3,7 +3,7 @@
 Mezo designed for managing and analyzing samples of pitch and their associated images. It provides a
 user-friendly interface for viewing a library of samples and editing images.
 
-![Mezo analysis](assets\mezo_analysis.png?raw=true)
+![Mezo analysis](https://github.com/donatorex/AI_mezo/blob/main/assets/mezo_analysis.png?raw=true)
 
 ## Disclamer
 
@@ -17,7 +17,8 @@ collaboration, please contact me via the details provided in my GitHub profile.
 [this link](https://github.com/facebookresearch/segment-anything/blob/main/README.md#model-checkpoints.);
 2. Place the downloaded model checkpoint (file .pth) in the root folder;
 3. Make sure the file name matches the `sam_checkpoint` constant in the
-[mezo/editor.py](mezo\editor.py) file - otherwise, change the constant.
+[mezo/editor.py](https://github.com/donatorex/AI_mezo/blob/main/mezo/editor.py) file - otherwise,
+change the constant.
 
 ## Running
 
@@ -35,7 +36,8 @@ To run the Mezo program, please follow these steps:
 
 2. **Create a Virtual Environment:**
 
-   Create a virtual environment to manage the dependencies for this project. You can do this by running the following command in your terminal:
+   Create a virtual environment to manage the dependencies for this project. You can do this by
+   running the following command in your terminal:
 
    ```bash
    python -m venv venv
