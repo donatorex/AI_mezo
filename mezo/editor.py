@@ -1693,27 +1693,35 @@ def editor(page: ft.Page) -> ft.View:
         bgcolor=COLOR_SCHEME['background'],
         content=ft.Column(
             [
-                ft.Text('v.0.01\n\n\n'),
                 ft.Text(
-                    'Приложение находится в стадии тестирования.\n\n\n',
+                    '''Приложение является личным проектом автора и не предназначено для
+коммерческого использования.\n\n\n''',
                     text_align=ft.TextAlign.CENTER
                 ),
-                ft.Text(
-                    'Автор: Роман Козлов',
-                    text_align=ft.TextAlign.CENTER
-                ),
-                ft.Markdown(
-                    '[onemoreuselessthing.com](https://project11648075.tilda.ws/)',
-                    on_tap_link=lambda e: page.launch_url(e.data)
-                ),
-                ft.Markdown(
-                    '[Github](https://github.com/donatorex)',
-                    on_tap_link=lambda e: page.launch_url(e.data)
+                ft.Column(
+                    [
+                        ft.Text(
+                            'Автор: Роман Козлов',
+                            text_align=ft.TextAlign.CENTER
+                        ),
+                        ft.Markdown(
+                            '[romankozlov.me](https://romankozlov.me/portfolio)',
+                            on_tap_link=lambda e: page.launch_url(e.data)
+                        ),
+                        ft.Markdown(
+                            '[Github](https://github.com/donatorex)',
+                            on_tap_link=lambda e: page.launch_url(e.data)
+                        )
+                    ],
+                    height=70,
+                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER
                 )
             ],
-            alignment=ft.MainAxisAlignment.START,
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            height=250
+            height=200,
+            width=400
         )
     )
     # Scale changer dialog
