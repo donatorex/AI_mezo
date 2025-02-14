@@ -50,7 +50,7 @@ To run the Mezo program, please follow these steps:
    - On Windows, activate the virtual environment with:
 
      ```bash
-     .venvScriptsactivate
+     .\venv\Scripts\activate
      ```
 
    - On macOS and Linux, use:
