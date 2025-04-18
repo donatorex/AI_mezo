@@ -794,6 +794,69 @@ def editor(page: ft.Page) -> ft.View:
         # Update mask in canvas
         update_control(canvas.controls[0].controls[0].controls[0])
 
+    def update_mask(e: ft.ControlEvent) -> None:
+        """
+        Update mask.
+
+        This function updates the mask layer in the canvas by adding the mezos from the database.
+
+        :return: None
+        """
+        # Get image size
+        image_width, image_height = page.session.get('image_size')
+        # Get mezo data
+        mezo_data = page.session.get('mezo_data')
+        # Initialize overlay
+        overlay = Image.new('RGBA', (image_width, image_height), (255, 255, 255, 0))
+        overlay_draw = ImageDraw.Draw(overlay, mode='RGBA')
+
+        update_status_message('Annotations are being updated. Please wait.')
+
+        for mezo in mezo_data.values():
+            # Get mezo coordinates
+            x, y = mezo['center']
+            radius = mezo['diameter'] / 2
+
+            # Calculate mezo circle coordinates
+            left_up_point = (x - radius, y - radius)
+            right_down_point = (x + radius, y + radius)
+            center_left_up_point = (x - 2, y - 2)
+            center_right_down_point = (x + 2, y + 2)
+
+            # Draw mezo
+            fill_color = (191, 255, 0, 128)
+            overlay_draw.ellipse(
+                [left_up_point, right_down_point],
+                fill=fill_color,
+                outline='#BFFF00',
+                width=3
+            )
+            overlay_draw.ellipse([center_left_up_point, center_right_down_point], fill='#BFFF00')
+
+        # Update mask in canvas
+        buffered = io.BytesIO()
+        overlay.save(buffered, format="PNG")
+        img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
+
+        canvas.controls[0].controls[0].controls[0].content.content.controls[1] = \
+            ft.Image(src_base64=img_base64)
+
+        # Save new mask
+        mask_dir = os.path.join(DATA_DIR, page.session.get('sample_data')['name'], 'masks')
+        mask_path = os.path.join(mask_dir, f"mask {page.session.get('image_index') + 1}.png")
+        overlay.save(mask_path)
+
+        # Update mask in session storage
+        page.session.set('mask', overlay)
+
+        # Save result image
+        save_image()
+
+        # Update mask in canvas
+        update_control(canvas.controls[0].controls[0].controls[0])
+
+        update_status_message('Done!')
+
     def remove_tool(coord: list) -> None:
         """
         Remove tool.
@@ -1896,6 +1959,10 @@ def editor(page: ft.Page) -> ft.View:
                                             on_click=lambda e: page.open(porosity_changer)
                                         ),
                                         ft.Divider(),
+                                        ft.MenuItemButton(
+                                            content=ft.Text('Обновить аннотации'),
+                                            on_click=update_mask
+                                        ),
                                         ft.MenuItemButton(
                                             content=ft.Text('Сбросить увеличение'),
                                             on_click=reset_viewer
